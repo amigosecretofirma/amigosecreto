@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Amigo Oculto - Dicas sobre mim</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: linear-gradient(120deg, #f0f0f0, #e0e0e0);
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 700px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .container:hover {
+      transform: scale(1.02);
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+
+    .dica {
+      font-size: 1.3em;
+      background-color: #e7f7e7;
+      border-radius: 8px;
+      margin: 15px 0;
+      padding: 15px;
+      color: #2e7d32;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideIn 0.5s forwards;
+      display: none;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #28a745;
+      font-weight: bold;
+    }
+
+    .message {
+      font-size: 1.2em;
+      color: #ff6347;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Photo and Music Styling */
+    .photo-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .photo-container img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .audio-container {
+      margin-top: 20px;
+    }
+
+    /* Responsividade */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      button {
+        padding: 12px 25px;
+        font-size: 1em;
+      }
+
+      .dica {
+        font-size: 1.1em;
+        padding: 12px;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Quem é o seu amigo oculto?</h1>
+    <p>Eu tirei você no amigo oculto e aqui estão algumas dicas para você adivinhar quem sou eu! Vamos ver se você consegue acertar! Que comecem os jogos!</p>
+    
+    <!-- Photo Section -->
+    <div class="photo-container">
+      <img src="vanessa.jpeg" alt="Sua Foto" id="photo">
+    </div>
+
+    <!-- Music Section -->
+    <div class="audio-container">
+      <audio controls>
+        <source src="Corazon.mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+      </audio>
+    </div>
+
+    <!-- Dicas -->
+    <div class="dica" id="dica1">Dica 1: Eu adoro café e não começo o dia sem uma xícara!</div>
+    <div class="dica" id="dica2">Dica 2: Minha banda favorita é o Maná. </div>
+    <div class="dica" id="dica3">Dica 3: Meu maior prazer nas horas vagas é tocar bateria e guitarra com meus grandes amigos músicos.</div>
+    <div class="dica" id="dica4">Dica 4: Gosto de viajar e sempre tento explorar novos destinos!</div>
+    <div class="dica" id="dica5">Dica 5: Sou apaixonado por tecnologia, formado na área e profissional atuante no setor.</div>
+    <div class="dica" id="dica6">Dica 6: Minhas redes sociais costumam mostrar momentos com amigos músicos ”</div>
+    
+    <button onclick="mostrarDicas()">Mostrar Dicas</button>
+    
+    <div class="result" id="result"></div>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    let dicaIndex = 0;
+    const dicas = document.querySelectorAll('.dica');
+    const resultElement = document.getElementById('result');
+    const messageElement = document.getElementById('message');
+
+    function mostrarDicas() {
+      if (dicaIndex < dicas.length) {
+        dicas[dicaIndex].style.display = 'block';
+        dicas[dicaIndex].classList.add('animate');
+        dicaIndex++;
+      } else {
+        resultElement.innerHTML = "Você já viu todas as dicas!";
+        messageElement.innerHTML = "Tente adivinhar quem sou eu! Qual a sua aposta?";
+      }
+    }
+  </script>
+</body>
+</html>
