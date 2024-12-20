@@ -156,12 +156,15 @@
     <div class="dica" id="dica3">Dica 3: Meu maior prazer nas horas vagas é tocar bateria e guitarra com meus grandes amigos músicos.</div>
     <div class="dica" id="dica4">Dica 4: Gosto de viajar e sempre tento explorar novos destinos!</div>
     <div class="dica" id="dica5">Dica 5: Sou apaixonado por tecnologia, formado na área e profissional atuante no setor.</div>
-    <div class="dica" id="dica6">Dica 6: Minhas redes sociais costumam mostrar momentos com amigos músicos ”</div>
+    <div class="dica" id="dica6">Dica 6: Minhas redes sociais costumam mostrar momentos com amigos músicos.”</div>
     
     <button onclick="mostrarDicas()">Mostrar Dicas</button>
     
     <div class="result" id="result"></div>
     <div class="message" id="message"></div>
+
+    <!-- Link -->
+    <div id="link-container"></div>
   </div>
 
   <script>
@@ -169,15 +172,25 @@
     const dicas = document.querySelectorAll('.dica');
     const resultElement = document.getElementById('result');
     const messageElement = document.getElementById('message');
+    const linkContainer = document.getElementById('link-container');
 
     function mostrarDicas() {
       if (dicaIndex < dicas.length) {
         dicas[dicaIndex].style.display = 'block';
-        dicas[dicaIndex].classList.add('animate');
         dicaIndex++;
       } else {
         resultElement.innerHTML = "Você já viu todas as dicas!";
         messageElement.innerHTML = "Tente adivinhar quem sou eu! Qual a sua aposta?";
+
+        // Criando o link para descobrir
+        const link = document.createElement("a");
+        link.textContent = "Clique aqui para descobrir";
+        link.href = "descubra.html";
+        link.target = "_blank";
+        link.classList.add("link-descobrir");
+        
+        // Adicionando o link ao contêiner
+        linkContainer.appendChild(link);
       }
     }
   </script>
